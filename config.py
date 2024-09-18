@@ -149,7 +149,7 @@ class UserConfig:
         preferences=None,
         plugins=None,
         languages=None,
-        systemprompt=None,
+        systemprompt="Your name is Jarvis, you are very good at everything.",
         claude_systemprompt=None
     ):
         self.user_id = user_id
@@ -265,7 +265,7 @@ class UserConfig:
 
 Users = UserConfig(mode=CHAT_MODE, api_key=API, api_url=API_URL, engine=GPT_ENGINE, preferences=PREFERENCES, plugins=PLUGINS, language=LANGUAGE, languages=LANGUAGES, systemprompt=systemprompt, claude_systemprompt=claude_systemprompt)
 
-temperature = float(os.environ.get('temperature', '0.5'))
+temperature = float(os.environ.get('temperature', '0.9'))
 CLAUDE_API = os.environ.get('claude_api_key', None)
 
 ChatGPTbot, SummaryBot, claude3Bot, groqBot, gemini_Bot, vertexBot, whisperBot, duckBot = None, None, None, None, None, None, None, None
@@ -505,8 +505,8 @@ if GROQ_API_KEY:
     ])
 if GOOGLE_AI_API_KEY or (VERTEX_PRIVATE_KEY and VERTEX_CLIENT_EMAIL and VERTEX_PROJECT_ID):
     initial_model.extend([
-        "gemini-1.5-pro",
-        "gemini-1.5-flash",
+        "gemini-1.5-pro-exp-0827",
+        "gemini-1.5-flash-exp-0827",
     ])
 
 if duckBot:
